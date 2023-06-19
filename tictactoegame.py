@@ -18,6 +18,7 @@ winner_screen = pygame.display.set_mode((WIDTH, HEIGHT))
 
 #Define colors
 BLACK = (0, 0, 0)
+GREEN = (0,255,0)
 WHITE = (255, 255, 255)
 
 #Create the game board
@@ -106,13 +107,13 @@ while running:
         draw_board()
         pygame.display.update()
     else:
-        winner_screen.fill(BLACK)
+        winner_screen.fill(GREEN)
         winner_font = pygame.font.SysFont(None, 48)
         if winner == None:
-            winner_text = winner_font.render(f"Draw!", True, WHITE)
+            winner_text = winner_font.render(f"Draw!", True, BLACK)
         else:
-            winner_text = winner_font.render(f"Player {winner} wins!", True, WHITE)
-        turns_text = winner_font.render(f"Turns: {clicks}", True, WHITE)
+            winner_text = winner_font.render(f"Player {winner} wins!", True, BLACK)
+        turns_text = winner_font.render(f"Turns: {clicks}", True, BLACK)
         winner_screen.blit(winner_text, (WIDTH // 2 - winner_text.get_width() // 2, HEIGHT // 2 - winner_text.get_height() // 2))
         winner_screen.blit(turns_text, (WIDTH // 2 - winner_text.get_width() // 2, (HEIGHT // 2 - winner_text.get_height() // 2) +100))
         pygame.display.flip()
